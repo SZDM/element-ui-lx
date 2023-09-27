@@ -115,41 +115,45 @@
 :::demo 添加`is-range`属性即可选择时间范围，同样支持`arrow-control`属性。
 ```html
 <template>
-  <el-time-picker
-    is-range
-    v-model="value1"
-    range-separator="至"
-    start-placeholder="开始时间"
-    end-placeholder="结束时间"
-    placeholder="选择时间范围">
-  </el-time-picker>
-  <el-time-picker
-    is-range
-    arrow-control
-    v-model="value2"
-    range-separator="至"
-    start-placeholder="开始时间"
-    end-placeholder="结束时间"
-    placeholder="选择时间范围">
-  </el-time-picker>
-  <el-time-picker
-    v-model="value3"
-    format="HH:mm"
-    value-format='HH:mm'
-    placeholder="选择时间"
-    confirm-control
-    :default-value="defaultDate">
-  </el-time-picker>
-    <el-time-select
-            v-model="value4"
-            :picker-options="{
-        start: '00:00',
-        step: '00:30',
-        end: '24:00'
-      }"
-            placeholder="选择时间"
-            :default-value="endTime">
-    </el-time-select>
+  <div class="separator">
+     <el-time-picker 
+        is-range
+        v-model="value1"
+        range-separator="至"
+        start-placeholder="开始时间"
+        end-placeholder="结束时间"
+        placeholder="选择时间范围">
+     </el-time-picker>
+     <el-time-picker
+         is-range
+         arrow-control
+         v-model="value2"
+         range-separator="至"
+         start-placeholder="开始时间"
+         end-placeholder="结束时间"
+         placeholder="选择时间范围">
+     </el-time-picker>
+  </div>
+  <div>
+     <el-time-picker
+        v-model="value3"
+        format="HH:mm"
+        value-format='HH:mm'
+        placeholder="选择时间"
+        confirm-control
+        :default-value="defaultDate">
+     </el-time-picker>
+     <el-time-select
+        v-model="value4"
+        :picker-options="{
+           start: '00:00',
+           step: '00:30',
+           end: '24:00'
+        }"
+        placeholder="选择时间"
+        :default-value="endTime">
+     </el-time-select>
+  </div>
 </template>
 
 <script>
@@ -160,8 +164,8 @@
         value2: [new Date(2016, 9, 10, 8, 40), new Date(2016, 9, 10, 9, 40)],
         value3: '',
         defaultDate: new Date(0, 0, 0, 8, 40),
-          value4: '',
-          endTime: '05:00'
+        value4: '',
+        endTime: '05:00'
       };
     }
   }
@@ -183,6 +187,7 @@
 | end-placeholder | 范围选择时开始日期的占位内容 | string | — | — |
 | is-range | 是否为时间范围选择，仅对`<el-time-picker>`有效 | boolean | — | false |
 | arrow-control | 是否使用箭头进行时间选择，仅对`<el-time-picker>`有效 | boolean | — | false |
+| confirm-control | 是否使用确定按钮进行时间选择，仅对`<el-time-picker>`有效 | boolean | - | false | 
 | align | 对齐方式 | string | left / center / right | left |
 | popper-class | TimePicker 下拉框的类名 | string | — | — |
 | picker-options | 当前时间日期选择器特有的选项参考下表 | object | — | {} |
